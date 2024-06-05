@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task - Task Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles can be added here */
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+    
+    <a href="/" class="text-lg text-blue-500 hover:underline mb-4">&lt; Go back to home</a>
+    <div class="max-w-4xl mx-auto p-8 bg-white shadow-lg rounded-lg">
+        <h1 class="text-4xl font-bold pb-2 border-b border-green-900 mb-4 ">Update File Name</h1>
+
+
+
+        <form action="/update" method="post" class="mb-4">
+            <!-- old file name  -->
+            <label for="oldFileName" class="block mb-2 text-gray-600">Old File Name:</label>
+            <input value="<%= oldName%>" readonly type="text" id="oldFileName" name="oldFileName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 mb-5">
+
+
+                <!-- new file name -->
+            <label for="newFileName" class="block mb-2 text-gray-600">New File Name:</label>
+            <input type="text" id="newFileName" name="newFileName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+
+            <button type="submit" class="mt-6 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Update File Name</button>
+        </form>
+
+        
+
+    </div>
+
+</body>
+
+</html>

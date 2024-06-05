@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+    <div class=" flex items-center justify-center py-10 ">
+
+        <div class=" bg-white p-8 rounded-lg shadow-xl space-y-8 w-full max-w-md ">
+            <h1 class="text-3xl font-bold mb-6 text-gray-800">Add New Task</h1>
+            <form action="/create" method="post">
+                <div class="mb-6">
+                    <label for="taskName" class="block text-gray-600 font-medium mb-2">Task Name</label>
+                    <input type="text" id="taskName" name="title"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+                <div class="mb-6">
+                    <label for="taskDescription" class="block text-gray-600 font-medium mb-2">Task Description</label>
+                    <input type="text" id="taskDescription" name="description"
+                        class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                </div>
+                <div class="flex justify-center">
+                    <button type="submit"
+                        class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">Add
+                        Task</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mx-24">
+
+        <% if(files.length>0) {%>
+
+            <% files.forEach(function(val){ %>
+                <div class="glassmorphism bg-white p-3  rounded-lg shadow-xl flex flex-col  justify-around">
+
+                    <h1 class="text-2xl font-bold text-gray-800 pb-4">
+                        <%= val %>
+                    </h1>
+                    <div class="flex justify-between">
+                        <a class="text-blue-500" href="/files/<%= val %>">Read More</a>
+                        <a class="text-blue-500" href="/edit/<%= val %>">Update Name </a>
+                        <a class="text-red-500" href="/delete/<%= val %>">Delete file </a>
+                    </div>
+                </div>
+                <% }) %>
+
+                    <%}else{%>
+                        <h1 class="text-2xl font-bold text-gray-800 pb-4">Task is not added Yet...</h1>
+                        <%}%>
+
+
+
+                            <!-- form this -->
+
+    </div>
+
+</body>
+
+</html>
